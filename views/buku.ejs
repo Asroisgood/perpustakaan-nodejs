@@ -1,0 +1,50 @@
+<h1 class="text-center">DAFTAR BUKU</h1>
+<a type="button" class="btn btn-primary d-block mb-3" href='/buku'>Tambah Buku</a>
+<table class="table">
+   <thead>
+     <tr>
+       <th scope="col">#</th>
+       <th scope="col">Kode Buku</th>
+       <th scope="col">Judul Buku</th>
+       <th scope="col">Pengarang</th>
+       <th scope="col">Penerbit</th>
+       <th scope="col">Action</th>
+     </tr>
+   </thead>
+   <tbody>
+      <% results.forEach((data, i)=> { %>
+         <tr>
+           <th scope="row"><%= ++i %></th>
+           <td><%= data.kode_buku %></td>
+           <td><%= data.judul_buku %></td>
+           <td><%= data.pengarang %></td>
+           <td><%= data.penerbit %></td>
+           <td>
+              <form method="POST" action="/buku?_method=DELETE">
+               <input type="hidden" name="kode_buku" value="<%= data.kode_buku %>" />
+               <button
+                 type="submit"
+                 class="btn btn-danger btn-sm"
+                 onclick="return confirm('Anda yakin akan menghapus buku <%= data.judul_buku %>?')"
+               >
+               </i> Delete
+               </button>
+             </form>
+
+             <form method="POST" action="/edit">
+               <input type="hidden" name="kode_buku" value="<%= data.kode_buku %>" />
+
+               <button
+                 type="submit"
+                 class="btn btn-primary btn-sm"
+               >
+               Edit
+               </button>
+             </form>
+           </td>
+         </tr>
+       
+      <% }) %>
+
+   </tbody>
+ </table>

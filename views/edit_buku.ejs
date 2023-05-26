@@ -1,0 +1,22 @@
+<form method='post' action='/buku?_method=PUT'>
+   <div class="mb-3">
+      <label class="form-label">Kode Buku</label>
+      <input type="hidden" class="form-control" id="kode_buku" name='kode_buku' value='<%= result.kode_buku %>'>
+      <input type="text" class="form-control" value='<%= result.kode_buku %>' disabled>
+   </div>
+   <div class="mb-3">
+     <label class="form-label">Judul Buku</label>
+     <input type="text" class="form-control" id="judul_buku" name='judul_buku' value='<%= result.judul_buku %>'>
+   </div>
+   <div class="mb-3">
+     <label class="form-label">Pengarang</label>
+     <input type="text" class="form-control" id="pengarang" name='pengarang' value='<%= result.pengarang %>'>
+   </div>
+   <div class="mb-3">
+     <label class="form-label">Penerbit</label>
+     <input type="text" class="form-control" id="penerbit" name='penerbit' value='<%= result.penerbit %>'>
+   </div>
+
+   <button type="submit" class="btn btn-primary">Submit</button>
+   <a href="/">Kembali</a>
+ </form>
